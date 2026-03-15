@@ -1,0 +1,16 @@
+obj/
+bin/
+*.user
+.vs/
+.claude/
+src/.vs/
+src/plugins/
+
+# Ignore recursive build artifact copies inside plugin output
+plugins/wells-ShrinkerGun/plugins/
+
+# Ignore build outputs (DLL is built from source, zip is a release artifact)
+plugins/wells-ShrinkerGun/ShrinkerGun.dll
+plugins/wells-ShrinkerGun/*.zip
+BuildZip/
+BuildInfo.g.cs
