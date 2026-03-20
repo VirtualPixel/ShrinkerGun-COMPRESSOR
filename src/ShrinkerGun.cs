@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace ShrinkerGun
 {
-    [BepInPlugin("Vippy.ShrinkerGun", "ShrinkerGun", "0.1.0")]
+    [BepInPlugin("Vippy.ShrinkerGun", "ShrinkerGun", BuildInfo.Version)]
     [BepInDependency("Vippy.ScalerCore", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency(REPOLib.MyPluginInfo.PLUGIN_GUID, BepInDependency.DependencyFlags.HardDependency)]
     public class Plugin : BaseUnityPlugin

@@ -27,12 +27,14 @@ Copy-Item -LiteralPath (Join-Path $RepoRoot "CHANGELOG.md") -Destination $buildZ
 Copy-Item -LiteralPath (Join-Path $RepoRoot "manifest.json") -Destination $buildZipDir -Force
 
 # Repobundle: required for the gun's custom asset
-$bundleSrc = Get-ChildItem -Path $RepoRoot -Filter "*.repobundle" -Recurse -File | Select-Object -First 1
+$outputDir = Split-Path $DllPath -Parent
+$bundleSrc = Get-ChildItem -Path $outputDir, $RepoRoot -Filter "*.repobundle" -Recurse -File -ErrorAction SilentlyContinue | Select-Object -First 1
 if ($bundleSrc) {
     Copy-Item -LiteralPath $bundleSrc.FullName -Destination (Join-Path $buildZipDir $bundleSrc.Name) -Force
     Write-Host "Included repobundle: $($bundleSrc.Name)"
 } else {
-    Write-Host "WARNING: No .repobundle found - zip will be missing asset bundle"
+    Write-Error "FATAL: No .repobundle found in '$RepoRoot' or '$outputDir'"
+    exit 1
 }
 
 # Icon: copy if exists, skip if not
