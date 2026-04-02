@@ -42,21 +42,23 @@ If you use a shrinker cart for fitting loot into the cart, the COMPRESSOR handle
 
 ## Configuration
 
-All settings are in the ScalerCore config (`ScalerCore.cfg`), not ShrinkerGun's config. ScalerCore is the library that does the actual scaling.
+Scaling behavior is built into the gun — it uses hardcoded `ScaleOptions` values tuned for the best gameplay feel:
+
+| Behavior | Value | Notes |
+|----------|-------|-------|
+| Scale factor | 40% | Objects shrink to 40% of original size |
+| Enemy duration | 120s | Enemies auto-restore after 2 minutes |
+| Valuable duration | Permanent | Stay shrunken until damaged or round ends |
+| Item duration | 300s | Items auto-restore after 5 minutes |
+| Player duration | Permanent | Stay shrunken until bonked or F10 |
+| Enemy damage | 10% | Shrunken enemies deal reduced damage |
+| Enemy speed | 65% | Shrunken enemies move slower |
+
+ScalerCore has one user-facing setting in `ScalerCore.cfg`:
 
 | Setting | Default | What it does |
 |---------|---------|-------------|
-| ShrinkFactor | 0.4 | How small things get (0.4 = 40% size) |
-| ShrinkSpeed | 2.0 | How fast the shrink/grow animation plays |
-| EnemyDamageMultiplier | 0.1 | Shrunken enemy damage (10% of normal) |
-| EnemyShrinkDuration | 120 | Seconds before enemies auto-restore |
-| ValuableShrinkDuration | 0 | Seconds before valuables auto-restore (0 = permanent) |
-| ItemShrinkDuration | 300 | Seconds before items auto-restore |
-| PlayerShrinkDuration | 0 | Seconds before players auto-restore (0 = permanent) |
-| EnemyShrinkSpeedFactor | 0.65 | How fast shrunken enemies move |
-| ShrunkMassCap | 5.0 | Max mass while shrunken |
-
-See `ScalerCore.cfg` for the full list with descriptions.
+| ShrinkChallengeMode | false | Players start shrunken. Guns temporarily grow you; damage shrinks you back. |
 
 ## Multiplayer
 

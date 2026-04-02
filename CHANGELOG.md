@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.0
+
+- **Updated:** Requires ScalerCore 0.4.0
+- **Fixed:** Configuration section in README now shows correct values
+
 ## 0.3.0
 
 - **Updated:** Requires ScalerCore 0.3.0 with major enemy scaling improvements
