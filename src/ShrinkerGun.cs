@@ -34,14 +34,12 @@ namespace ShrinkerGun
         void Update()
         {
             if (!_enableDebugKeys.Value) return;
+            if (!SemiFunc.IsMasterClientOrSingleplayer()) return;
 
             var player = PlayerAvatar.instance;
             if (player == null) return;
             var ctrl = player.GetComponent<ScaleController>();
             if (ctrl == null) return;
-
-            bool isLocal = !PhotonNetwork.InRoom || (player.photonView != null && player.photonView.IsMine);
-            if (!isLocal) return;
 
             if (!ctrl.IsScaled && Input.GetKeyDown(KeyCode.F9))
                 ctrl.RequestManualShrink();
