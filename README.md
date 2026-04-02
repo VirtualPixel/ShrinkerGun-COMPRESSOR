@@ -64,21 +64,17 @@ Works in multiplayer. All players need both ShrinkerGun and ScalerCore installed
 
 ## Known Issues
 
-This is v0.1.0 early access. It works, but expect some rough edges:
+- Loom (Shadow) arms may look off while shrunken (cosmetic — attack distance still scales correctly)
+- Some untested enemy types may float or clip slightly while shrunken
+- The gun uses base gun visuals (no custom model yet)
 
-- Some enemies may sit slightly above or below the ground while shrunken (per-enemy tuning is ongoing)
-- Player pupils may not always appear enlarged to other players in multiplayer
-- Grab strength/range adjustments for shrunken items are still being tuned
-- The gun is currently not animated (no custom model yet -- uses base gun visuals)
-- Early access -- actively developed, bug reports welcome
-
-Report bugs on the GitHub issues page.
+Report bugs on the [GitHub issues page](https://github.com/VirtualPixel/ShrinkGun-COMPRESSOR/issues).
 
 ## Dependencies
 
 - [BepInEx 5](https://thunderstore.io/c/repo/p/BepInEx/BepInExPack/) (5.4.2100+)
 - [REPOLib](https://thunderstore.io/c/repo/p/Zehs/REPOLib/) (3.0.3+)
-- [ScalerCore](https://thunderstore.io/c/repo/p/Vippy/ScalerCore/) (0.1.0+)
+- [ScalerCore](https://thunderstore.io/c/repo/p/Vippy/ScalerCore/) (0.3.0+)
 
 ## Credits
 
