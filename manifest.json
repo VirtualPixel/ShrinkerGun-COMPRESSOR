@@ -1,6 +1,6 @@
 {
   "name": "ShrinkerGun",
-  "version_number": "0.2.0",
+  "version_number": "0.3.0",
   "website_url": "https://github.com/VirtualPixel/ShrinkerGun-COMPRESSOR",
   "description": "Shrink ray gun for REPO. Shrink enemies, valuables, items, and players. Tiny squeaky enemies become grabbable. Vanilla+ active shrink mod. Pairs with SylhShrinkerCartPlus, ScaleInCart, and any shrinker cart.",
   "dependencies": [
