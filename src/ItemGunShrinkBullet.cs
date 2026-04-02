@@ -92,8 +92,21 @@ namespace ShrinkerGun
         static void Toggle(ScaleController ctrl)
         {
             Plugin.Log.LogInfo($"[SG] Toggle  ctrl={ctrl.GetInstanceID()}  IsScaled={ctrl.IsScaled}  currentScale={ctrl.transform.localScale}");
-            if (ctrl.IsScaled) ScaleManager.Restore(ctrl.gameObject);
-            else             ScaleManager.Apply(ctrl.gameObject);
+            if (ctrl.IsScaled)
+            {
+                ScaleManager.Restore(ctrl.gameObject);
+            }
+            else
+            {
+                var opts = Plugin.ShrinkOptions;
+                // Set duration based on target type
+                if (ctrl.Handler is ScalerCore.Handlers.EnemyHandler)
+                    opts.Duration = Plugin._enemyDuration;
+                else if (ctrl.Handler is ScalerCore.Handlers.ItemHandler)
+                    opts.Duration = Plugin._itemDuration;
+                // Players and valuables: opts.Duration stays 0 (permanent)
+                ScaleManager.Apply(ctrl.gameObject, opts);
+            }
         }
     }
 }
