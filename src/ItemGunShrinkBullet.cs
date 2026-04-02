@@ -100,9 +100,9 @@ namespace ShrinkerGun
             {
                 var opts = Plugin.ShrinkOptions;
                 // Set duration based on target type
-                if (ctrl.Handler is ScalerCore.Handlers.EnemyHandler)
+                if (ctrl.TargetType == ScaleTargets.Enemies)
                     opts.Duration = Plugin._enemyDuration;
-                else if (ctrl.Handler is ScalerCore.Handlers.ItemHandler)
+                else if (ctrl.TargetType == ScaleTargets.Items)
                     opts.Duration = Plugin._itemDuration;
                 // Players and valuables: opts.Duration stays 0 (permanent)
                 ScaleManager.Apply(ctrl.gameObject, opts);
