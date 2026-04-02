@@ -26,21 +26,22 @@ namespace ShrinkerGun
             ShrinkOptions = ScaleOptions.Default;
 
             _enableDebugKeys = Config.Bind("Debug", "EnableDebugKeys", false,
-                "Enable F9/F10 keys to shrink/unshrink yourself. Off by default.");
+                "Enable F9/F10 keys to shrink/unshrink yourself. Off by default. Host controls this for all players.");
+            ScaleController.AllowManualScale = _enableDebugKeys.Value;
 
             new Harmony("Vippy.ShrinkerGun").PatchAll();
         }
 
         void Update()
         {
-            if (!_enableDebugKeys.Value) return;
-            if (!SemiFunc.IsMasterClientOrSingleplayer()) return;
-
             var player = PlayerAvatar.instance;
             if (player == null) return;
             var ctrl = player.GetComponent<ScaleController>();
             if (ctrl == null) return;
 
+            // AllowManualScale is set by the host's config — the host gates
+            // the RPC so clients can freely press the keys. If the host has
+            // debug keys off, the request is rejected server-side.
             if (!ctrl.IsScaled && Input.GetKeyDown(KeyCode.F9))
                 ctrl.RequestManualShrink();
             if (ctrl.IsScaled && Input.GetKeyDown(KeyCode.F10))
