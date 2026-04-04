@@ -4,29 +4,29 @@ A shrink ray you can buy in the shop. Shoot anything to shrink it — shoot it a
 
 Enemies, valuables, items, players -- if you can hit it, you can shrink it.
 
-<img src="PLACEHOLDER_URL/shop_chaos.gif" width="800">
+<img src="https://raw.githubusercontent.com/VirtualPixel/ShrinkerGun-COMPRESSOR/main/media/shop_chaos.gif" width="800">
 
 ## What happens when you shrink stuff
 
 **Enemies** get tiny, squeaky, and mostly harmless. They still chase you, but their damage and speed drop with their size. Their grab force goes to zero — pick them up and throw them.
 
-<img src="PLACEHOLDER_URL/shrinking_enemy_picking_up.gif" width="800">
+<img src="https://raw.githubusercontent.com/VirtualPixel/ShrinkerGun-COMPRESSOR/main/media/shrinking_enemy_picking_up.gif" width="800">
 
 **Valuables** shrink for easy transport. No more struggling with oversized items through doorways — shrink it and toss it in the cart. They stay small until they take damage, so carry them carefully.
 
-<img src="PLACEHOLDER_URL/small_player_carring_valuable_to_cart.gif" width="800">
+<img src="https://raw.githubusercontent.com/VirtualPixel/ShrinkerGun-COMPRESSOR/main/media/small_player_carring_valuable_to_cart.gif" width="800">
 
 Drop it too hard and it pops back to full size:
 
-<img src="PLACEHOLDER_URL/small_player_shrinking_valuable_carrying_gets_damaged_reverts.gif" width="800">
+<img src="https://raw.githubusercontent.com/VirtualPixel/ShrinkerGun-COMPRESSOR/main/media/small_player_shrinking_valuable_carrying_gets_damaged_reverts.gif" width="800">
 
 **Players** can shrink each other. Tiny players get squeaky voices, big anime eyes, and adjusted camera so it actually feels right. Walk under doors you'd normally crouch through. Take damage to pop back.
 
-<img src="PLACEHOLDER_URL/small_player_tumbling_through_doors.gif" width="800">
+<img src="https://raw.githubusercontent.com/VirtualPixel/ShrinkerGun-COMPRESSOR/main/media/small_player_tumbling_through_doors.gif" width="800">
 
 **Carts, cart cannons, and cart lasers** become pocketable when shrunken. Shrink one, press an inventory key, stash it. Pull it out later — still tiny. Shoot it again and it's full size on the ground.
 
-<img src="PLACEHOLDER_URL/small_player_pushing_cart.gif" width="800">
+<img src="https://raw.githubusercontent.com/VirtualPixel/ShrinkerGun-COMPRESSOR/main/media/small_player_pushing_cart.gif" width="800">
 
 **Items** shrink too. Grenades get smaller explosions. Orbs get smaller radius. Even doors. Why not.
 
@@ -71,7 +71,7 @@ ScalerCore has one extra setting in `ScalerCore.cfg`:
 |---------|---------|-------------|
 | ShrinkChallengeMode | false | Everyone starts shrunken. Guns temporarily grow you. Damage shrinks you back. |
 
-<img src="PLACEHOLDER_URL/map_chaos.gif" width="800">
+<img src="https://raw.githubusercontent.com/VirtualPixel/ShrinkerGun-COMPRESSOR/main/media/map_chaos.gif" width="800">
 
 ## Multiplayer
 
