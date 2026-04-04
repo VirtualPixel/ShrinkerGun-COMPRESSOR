@@ -25,17 +25,17 @@ namespace ShrinkerGun
 
         void Start()
         {
-            Plugin.Log.LogInfo($"[SG] Bullet Start  isMaster={SemiFunc.IsMasterClientOrSingleplayer()}  instanceID={GetInstanceID()}  GO={gameObject.name}");
+            Plugin.Log.LogDebug($"[SG] Bullet Start  isMaster={SemiFunc.IsMasterClientOrSingleplayer()}  instanceID={GetInstanceID()}  GO={gameObject.name}");
             if (!SemiFunc.IsMasterClientOrSingleplayer()) return;
 
             var bullet = GetComponent<ItemGunBullet>();
             if (bullet == null || !bullet.bulletHit)
             {
-                Plugin.Log.LogInfo($"[SG] Bullet SKIP  bullet={bullet != null}  hit={bullet?.bulletHit}");
+                Plugin.Log.LogDebug($"[SG] Bullet SKIP  bullet={bullet != null}  hit={bullet?.bulletHit}");
                 return;
             }
 
-            Plugin.Log.LogInfo($"[SG] Bullet HIT at {bullet.hitPosition}");
+            Plugin.Log.LogDebug($"[SG] Bullet HIT at {bullet.hitPosition}");
             ShrinkAtPoint(bullet.hitPosition);
         }
 
@@ -50,7 +50,7 @@ namespace ShrinkerGun
             var colliders = Physics.OverlapSphere(
                 point, 0.3f, layerMask, QueryTriggerInteraction.Collide);
 
-            Plugin.Log.LogInfo($"[SG] OverlapSphere  center={point}  radius=0.3  hits={colliders.Length}");
+            Plugin.Log.LogDebug($"[SG] OverlapSphere  center={point}  radius=0.3  hits={colliders.Length}");
             int playerLayer = LayerMask.NameToLayer("Player");
             foreach (var col in colliders)
             {
@@ -63,12 +63,12 @@ namespace ShrinkerGun
                 if (ctrl == null && col.gameObject.layer == playerLayer)
                     ctrl = FindNearestPlayerCtrl(col.transform.position);
 
-                Plugin.Log.LogInfo($"[SG]   collider={col.gameObject.name}  layer={col.gameObject.layer}  ctrl={ctrl != null}  ctrlID={ctrl?.GetInstanceID()}  IsScaled={ctrl?.IsScaled}");
+                Plugin.Log.LogDebug($"[SG]   collider={col.gameObject.name}  layer={col.gameObject.layer}  ctrl={ctrl != null}  ctrlID={ctrl?.GetInstanceID()}  IsScaled={ctrl?.IsScaled}");
                 if (ctrl == null || ctrl == _sourceCtrl) continue;
                 Toggle(ctrl);
                 return;
             }
-            Plugin.Log.LogInfo("[SG] No target found");
+            Plugin.Log.LogDebug("[SG] No target found");
         }
 
         static ScaleController? FindNearestPlayerCtrl(Vector3 pos)
@@ -91,7 +91,7 @@ namespace ShrinkerGun
 
         static void Toggle(ScaleController ctrl)
         {
-            Plugin.Log.LogInfo($"[SG] Toggle  ctrl={ctrl.GetInstanceID()}  IsScaled={ctrl.IsScaled}  currentScale={ctrl.transform.localScale}");
+            Plugin.Log.LogDebug($"[SG] Toggle  ctrl={ctrl.GetInstanceID()}  IsScaled={ctrl.IsScaled}  currentScale={ctrl.transform.localScale}");
             // ScalerCore handles same-factor toggle automatically — just always Apply.
             var opts = Plugin.ShrinkOptions;
             if (ctrl.TargetType == ScaleTargets.Enemies)

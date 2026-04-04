@@ -16,7 +16,7 @@ namespace ShrinkerGun
         internal static ManualLogSource Log = null!;
         internal static ScaleOptions ShrinkOptions;
         internal static float _enemyDuration = 120f;
-        internal static float _itemDuration = 300f;
+        internal static float _itemDuration = 0f; // permanent until toggled
         static ConfigEntry<bool> _enableDebugKeys = null!;
 
         void Awake()
@@ -28,6 +28,7 @@ namespace ShrinkerGun
             _enableDebugKeys = Config.Bind("Debug", "EnableDebugKeys", false,
                 "Enable F9/F10 keys to shrink/unshrink yourself. Off by default. Host controls this for all players.");
             ScaleController.AllowManualScale = _enableDebugKeys.Value;
+            _enableDebugKeys.SettingChanged += (_, _) => ScaleController.AllowManualScale = _enableDebugKeys.Value;
 
             new Harmony("Vippy.ShrinkerGun").PatchAll();
         }
@@ -39,13 +40,13 @@ namespace ShrinkerGun
             var ctrl = player.GetComponent<ScaleController>();
             if (ctrl == null) return;
 
-            // AllowManualScale is set by the host's config — the host gates
-            // the RPC so clients can freely press the keys. If the host has
-            // debug keys off, the request is rejected server-side.
-            if (!ctrl.IsScaled && Input.GetKeyDown(KeyCode.F9))
-                ctrl.RequestManualShrink();
-            if (ctrl.IsScaled && Input.GetKeyDown(KeyCode.F10))
-                ctrl.RequestManualExpand();
+            if (Input.GetKeyDown(KeyCode.F9))
+            {
+                if (ctrl.IsScaled)
+                    ctrl.RequestManualExpand();
+                else
+                    ctrl.RequestManualShrink();
+            }
         }
 
         // Set PendingSourceCtrl before ShootBulletRPC instantiates the bullet so
