@@ -12,6 +12,10 @@
 - **Improved:** Map collapse enemies are slightly faster instead of comically fast
 - **Updated:** Requires ScalerCore 0.4.3
 
+## 0.4.2
+
+- Bumped ScalerCore dependency to 0.4.2
+
 ## 0.4.1
 
 - **New:** Shrunken items that aren't normally pocketable (carts, cart cannon, cart laser, tracker) can now be pocketed
