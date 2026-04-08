@@ -2,11 +2,6 @@
 
 ## 0.4.3
 
-- Re-release of 0.4.2 with corrected packaging
-- **Updated:** Requires ScalerCore 0.4.3
-
-## 0.4.2
-
 - **New:** `LevelCollapse` setting (Chaos section) — shoot the map with the shrink gun. Auto = April 1st only, On = always, Off = never.
 - **Moved:** `ShrinkChallengeMode` and all user-facing settings now live here
 - **Fixed:** Map collapse audio respects master volume
@@ -15,7 +10,7 @@
 - **Improved:** Pocketed items generate icons at runtime (no more embedded PNGs)
 - **Improved:** Map collapse crush feels heavier — FOV slam, shake, and a brief hold before death
 - **Improved:** Map collapse enemies are slightly faster instead of comically fast
-- **Updated:** Requires ScalerCore 0.4.2
+- **Updated:** Requires ScalerCore 0.4.3
 
 ## 0.4.1
 
