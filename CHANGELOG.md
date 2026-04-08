@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.3
+
+- Re-release of 0.4.2 with corrected packaging
+- **Updated:** Requires ScalerCore 0.4.3
+
 ## 0.4.2
 
 - **New:** `LevelCollapse` setting (Chaos section) — shoot the map with the shrink gun. Auto = April 1st only, On = always, Off = never.
