@@ -65,12 +65,6 @@ Hardcoded defaults:
 | Enemy damage | Scales with size (40%) |
 | Enemy speed | 75% |
 
-ScalerCore has one extra setting in `ScalerCore.cfg`:
-
-| Setting | Default | What it does |
-|---------|---------|-------------|
-| ShrinkChallengeMode | false | Everyone starts shrunken. Guns temporarily grow you. Damage shrinks you back. |
-
 <img src="https://raw.githubusercontent.com/VirtualPixel/ShrinkerGun-COMPRESSOR/main/media/map_chaos.gif" width="800">
 
 ## Multiplayer
@@ -88,7 +82,7 @@ Report bugs on the [GitHub issues page](https://github.com/VirtualPixel/ShrinkGu
 
 - [BepInEx 5](https://thunderstore.io/c/repo/p/BepInEx/BepInExPack/) (5.4.2100+)
 - [REPOLib](https://thunderstore.io/c/repo/p/Zehs/REPOLib/) (3.0.3+)
-- [ScalerCore](https://thunderstore.io/c/repo/p/Vippy/ScalerCore/) (0.4.1+)
+- [ScalerCore](https://thunderstore.io/c/repo/p/Vippy/ScalerCore/) (0.4.2+)
 
 ## Credits
 
