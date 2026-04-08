@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.4.2
+
+- **New:** `LevelCollapse` setting (Chaos section) — shoot the map with the shrink gun. Auto = April 1st only, On = always, Off = never.
+- **Moved:** `ShrinkChallengeMode` and all user-facing settings now live here
+- **Fixed:** Map collapse audio respects master volume
+- **Fixed:** Pocketed item icons no longer disappear after level transitions
+- **Fixed:** Camera glitch effect fills the full screen while shrunken
+- **Improved:** Pocketed items generate icons at runtime (no more embedded PNGs)
+- **Improved:** Map collapse crush feels heavier — FOV slam, shake, and a brief hold before death
+- **Improved:** Map collapse enemies are slightly faster instead of comically fast
+- **Updated:** Requires ScalerCore 0.4.2
+
 ## 0.4.1
 
 - **New:** Shrunken items that aren't normally pocketable (carts, cart cannon, cart laser, tracker) can now be pocketed
