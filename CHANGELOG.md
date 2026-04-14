@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.4
+
+- **Fixed:** Non-host clients could trigger scale/restore logic directly, causing desyncs
+- **Updated:** Requires ScalerCore 0.4.4
+
 ## 0.4.3
 
 - **New:** `LevelCollapse` setting (Chaos section) — shoot the map with the shrink gun. Auto = April 1st only, On = always, Off = never.
@@ -58,13 +63,9 @@
 - **Updated:** Dependency list
 - **Updated:** Version number to be more dynamic
 
----
-
 ## 0.1.1
 
 - **Fixed:** Missing the correct repobundle 
-
----
 
 ## 0.1.0
 

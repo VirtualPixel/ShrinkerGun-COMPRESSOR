@@ -82,7 +82,7 @@ Report bugs on the [GitHub issues page](https://github.com/VirtualPixel/ShrinkGu
 
 - [BepInEx 5](https://thunderstore.io/c/repo/p/BepInEx/BepInExPack/) (5.4.2100+)
 - [REPOLib](https://thunderstore.io/c/repo/p/Zehs/REPOLib/) (3.0.3+)
-- [ScalerCore](https://thunderstore.io/c/repo/p/Vippy/ScalerCore/) (0.4.2+)
+- [ScalerCore](https://thunderstore.io/c/repo/p/Vippy/ScalerCore/) (0.4.4+)
 
 ## Credits
 
