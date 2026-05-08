@@ -2,6 +2,8 @@
 
 A shrink ray you can buy in the shop. Shoot anything to shrink it — shoot it again to restore it.
 
+> **v0.5.0 — updated for R.E.P.O. v0.4.** Rebuilt against the latest game release. 0.4.4 will not load on v0.4. Update to 0.5.0 alongside ScalerCore 0.5.0 and REPOLib 4.0.0.
+
 Enemies, valuables, items, players -- if you can hit it, you can shrink it.
 
 <img src="https://raw.githubusercontent.com/VirtualPixel/ShrinkerGun-COMPRESSOR/main/media/shop_chaos.gif" width="800">
@@ -80,9 +82,9 @@ Report bugs on the [GitHub issues page](https://github.com/VirtualPixel/ShrinkGu
 
 ## Dependencies
 
-- [BepInEx 5](https://thunderstore.io/c/repo/p/BepInEx/BepInExPack/) (5.4.2100+)
-- [REPOLib](https://thunderstore.io/c/repo/p/Zehs/REPOLib/) (3.0.3+)
-- [ScalerCore](https://thunderstore.io/c/repo/p/Vippy/ScalerCore/) (0.4.4+)
+- [BepInEx 5](https://thunderstore.io/c/repo/p/BepInEx/BepInExPack/) (5.4.2305+)
+- [REPOLib](https://thunderstore.io/c/repo/p/Zehs/REPOLib/) (4.0.0+)
+- [ScalerCore](https://thunderstore.io/c/repo/p/Vippy/ScalerCore/) (0.5.0+)
 
 ## Credits
 

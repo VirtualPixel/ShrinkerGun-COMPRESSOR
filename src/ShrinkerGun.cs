@@ -38,7 +38,7 @@ namespace ShrinkerGun
             ShrinkOptions = ScaleOptions.Default;
 
             _enableDebugKeys = Config.Bind("Debug", "EnableDebugKeys", false,
-                "Enable F9/F10 keys to shrink/unshrink yourself. Off by default. Host controls this for all players.");
+                "Enable F9 to shrink/unshrink yourself. Off by default.");
             ScaleController.AllowManualScale = _enableDebugKeys.Value;
             _enableDebugKeys.SettingChanged += (_, _) => ScaleController.AllowManualScale = _enableDebugKeys.Value;
 
@@ -110,11 +110,7 @@ namespace ShrinkerGun
             {
                 if (!LevelCollapseEnabled) return;
                 if (!__instance.bulletHit) return;
-
-                bool shrinkBullet = false;
-                foreach (var mb in __instance.GetComponents<MonoBehaviour>())
-                    if (mb.GetType().Name == "ItemGunShrinkBullet") { shrinkBullet = true; break; }
-                if (!shrinkBullet) return;
+                if (__instance.GetComponent<ItemGunShrinkBullet>() == null) return;
 
                 int mask = (int)SemiFunc.LayerMaskGetPhysGrabObject() | LayerMask.GetMask("Enemy", "Player");
                 foreach (var c in Physics.OverlapSphere(__instance.hitPosition, 0.3f, mask, QueryTriggerInteraction.Collide))

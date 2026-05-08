@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.0
+
+- **Updated for R.E.P.O. v0.4:** Rebuilt against the latest game release. 0.4.4 will not load on v0.4.
+- **Updated:** Requires ScalerCore 0.5.0 (multiplayer fix — map collapse messages, sirens, and the truck cascade were running way too fast)
+- **Updated:** Requires REPOLib 4.0.0.
+
 ## 0.4.4
 
 - **Fixed:** Non-host clients could trigger scale/restore logic directly, causing desyncs
