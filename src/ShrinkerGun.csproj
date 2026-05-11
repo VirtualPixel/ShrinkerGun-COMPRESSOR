@@ -5,7 +5,7 @@
     <LangVersion>12</LangVersion>
     <Nullable>enable</Nullable>
     <Authors>Vippy</Authors>
-    <Version>0.5.0</Version>
+    <Version>0.5.2</Version>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
     <RootNamespace>ShrinkerGun</RootNamespace>
@@ -37,7 +37,7 @@
     <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.1" PrivateAssets="all" IncludeAssets="build" />
     <PackageReference Include="BepInEx.Core" Version="5.*" ExcludeAssets="runtime" />
     <PackageReference Include="UnityEngine.Modules" Version="2022.3.62" IncludeAssets="compile" PrivateAssets="all" />
-    <PackageReference Include="Zehs.REPOLib" Version="4.0.0" />
+    <PackageReference Include="Zehs.REPOLib" Version="4.0.1" />
     <Publicize Include="Assembly-CSharp" />
   </ItemGroup>
 
@@ -119,7 +119,7 @@ namespace ShrinkerGun
       <BundlePath>$(RepoRoot)/plugins/Vippy-ShrinkerGun/ShrinkerGun.repobundle</BundlePath>
     </PropertyGroup>
 
-    <Error Text="Missing $(BundlePath) — REPOLib needs the asset bundle to register the gun. Re-export from the Unity project." Condition="!Exists('$(BundlePath)')" />
+    <Error Text="Missing $(BundlePath), REPOLib needs the asset bundle to register the gun. Re-export from the Unity project." Condition="!Exists('$(BundlePath)')" />
 
     <UpdateManifestVersion ManifestPath="$(SourceManifest)" NewVersion="$(Version)" />
 

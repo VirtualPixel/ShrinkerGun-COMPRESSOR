@@ -7,7 +7,7 @@ namespace ShrinkerGun
     // ItemGunBullet owns all visuals; HurtCollider owns stun.
     // This component owns the shrink effect at the hit point.
     //
-    // No inspector wiring needed — Start() runs after ItemGun sets hitPosition
+    // No inspector wiring needed, Start() runs after ItemGun sets hitPosition
     // on the sibling ItemGunBullet, so the hit point is ready immediately.
     public class ItemGunShrinkBullet : MonoBehaviour
     {
@@ -50,7 +50,7 @@ namespace ShrinkerGun
                 var ctrl = col.GetComponent<PlayerShrinkLink>()?.Controller
                         ?? col.GetComponentInParent<ScaleController>();
 
-                // Player layer hit but no ShrinkLink found — the sphere hit the character
+                // Player layer hit but no ShrinkLink found, the sphere hit the character
                 // controller capsule instead of the avatar's CollisionTransform. Both sit at
                 // the same world position, so find the nearest player by CollisionTransform.
                 if (ctrl == null && col.gameObject.layer == playerLayer)
@@ -82,7 +82,7 @@ namespace ShrinkerGun
 
         static void Toggle(ScaleController ctrl)
         {
-            // ScalerCore handles same-factor toggle automatically — just always Apply.
+            // ScalerCore handles same-factor toggle automatically, just always Apply.
             var opts = Plugin.ShrinkOptions;
             if (ctrl.TargetType == ScaleTargets.Enemies)
                 opts.Duration = Plugin._enemyDuration;

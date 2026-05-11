@@ -1,8 +1,8 @@
 # ShrinkerGun: COMPRESSOR
 
-A shrink ray you can buy in the shop. Shoot anything to shrink it — shoot it again to restore it.
+A shrink ray you can buy in the shop. Shoot anything to shrink it. Shoot it again to restore it.
 
-> **v0.5.0 — updated for R.E.P.O. v0.4.** Rebuilt against the latest game release. 0.4.4 will not load on v0.4. Update to 0.5.0 alongside ScalerCore 0.5.0 and REPOLib 4.0.0.
+> **v0.5.1: v0.4 content + steering and pocketing fixes.** Shrunken vehicles drive properly now, cosmetic boxes shrink, and carts no longer vanish on repeated shrink/unshrink. Pair with ScalerCore 0.5.1 and REPOLib 4.0.1.
 
 Enemies, valuables, items, players -- if you can hit it, you can shrink it.
 
@@ -10,11 +10,11 @@ Enemies, valuables, items, players -- if you can hit it, you can shrink it.
 
 ## What happens when you shrink stuff
 
-**Enemies** get tiny, squeaky, and mostly harmless. They still chase you, but their damage and speed drop with their size. Their grab force goes to zero — pick them up and throw them.
+**Enemies** get tiny, squeaky, and mostly harmless. They still chase you, but their damage and speed drop with their size. Their grab force goes to zero, so you can pick them up and throw them.
 
 <img src="https://raw.githubusercontent.com/VirtualPixel/ShrinkerGun-COMPRESSOR/main/media/shrinking_enemy_picking_up.gif" width="800">
 
-**Valuables** shrink for easy transport. No more struggling with oversized items through doorways — shrink it and toss it in the cart. They stay small until they take damage, so carry them carefully.
+**Valuables** shrink for easy transport. No more struggling with oversized items through doorways. Shrink it and toss it in the cart. They stay small until they take damage, so carry them carefully.
 
 <img src="https://raw.githubusercontent.com/VirtualPixel/ShrinkerGun-COMPRESSOR/main/media/small_player_carring_valuable_to_cart.gif" width="800">
 
@@ -26,7 +26,7 @@ Drop it too hard and it pops back to full size:
 
 <img src="https://raw.githubusercontent.com/VirtualPixel/ShrinkerGun-COMPRESSOR/main/media/small_player_tumbling_through_doors.gif" width="800">
 
-**Carts, cart cannons, and cart lasers** become pocketable when shrunken. Shrink one, press an inventory key, stash it. Pull it out later — still tiny. Shoot it again and it's full size on the ground.
+**Carts, cart cannons, and cart lasers** become pocketable when shrunken. Shrink one, press an inventory key, stash it. Pull it out later, still tiny. Shoot it again and it's full size on the ground.
 
 <img src="https://raw.githubusercontent.com/VirtualPixel/ShrinkerGun-COMPRESSOR/main/media/small_player_pushing_cart.gif" width="800">
 
@@ -34,9 +34,9 @@ Drop it too hard and it pops back to full size:
 
 ## Works great with cart mods
 
-Already using [ScaleInCart](https://thunderstore.io/c/repo/p/BULLETBOT/ScaleInCart/) or [SylhShrinkerCartPlus](https://thunderstore.io/c/repo/p/Sylhaance/SylhShrinkerCartPlus/)? The COMPRESSOR handles everything those don't — enemies, players, doors, stuff that hasn't reached the cart yet. They work fine together.
+Already using [ScaleInCart](https://thunderstore.io/c/repo/p/BULLETBOT/ScaleInCart/) or [SylhShrinkerCartPlus](https://thunderstore.io/c/repo/p/Sylhaance/SylhShrinkerCartPlus/)? The COMPRESSOR handles everything those don't: enemies, players, doors, stuff that hasn't reached the cart yet. They work fine together.
 
-- Shrink a valuable before you pick it up — carry it through tight corridors
+- Shrink a valuable before you pick it up, then carry it through tight corridors
 - Shrink an enemy mid-chase and punt it across the room
 - Shrink your friend for laughs (squeaky voice and everything)
 - Shrink the extraction haul early so you're not fumbling at the truck
@@ -51,7 +51,7 @@ It costs a weapon slot and uses ammo. Everything has counterplay:
 | Enemies | Auto-restore after 2 minutes. Still fight back at reduced damage. |
 | Valuables | Pop back to full size if you drop them too hard. |
 | Players | Take any damage to restore. |
-| Carts/items | Shrunken players can't pocket shrunken items — the cart drops if you get shrunk too. |
+| Carts/items | Shrunken players can't pocket shrunken items. The cart drops if you get shrunk too. |
 
 ## Configuration
 
@@ -75,7 +75,7 @@ All players need ShrinkerGun and ScalerCore installed. Everything syncs over Pho
 
 ## Known Issues
 
-- Loom (Shadow) arms may look off while shrunken (cosmetic — attack distance still scales)
+- Loom (Shadow) arms may look off while shrunken (cosmetic, attack distance still scales)
 - Some untested enemy types may float or clip slightly while shrunken
 
 Report bugs on the [GitHub issues page](https://github.com/VirtualPixel/ShrinkGun-COMPRESSOR/issues).
@@ -88,4 +88,4 @@ Report bugs on the [GitHub issues page](https://github.com/VirtualPixel/ShrinkGu
 
 ## Credits
 
-Made by Vippy. [ScalerCore](https://thunderstore.io/c/repo/p/Vippy/ScalerCore/) is the scaling engine under the hood — open source if you want to build your own shrink/grow mod.
+Made by Vippy. [ScalerCore](https://thunderstore.io/c/repo/p/Vippy/ScalerCore/) is the scaling engine under the hood, open source if you want to build your own shrink/grow mod.
