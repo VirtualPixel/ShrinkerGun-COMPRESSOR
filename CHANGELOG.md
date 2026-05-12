@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.5.3
+
+- **Updated:** Requires ScalerCore 0.5.3 (shrunken players who died and got revived stayed shrunken on everyone else's screen; host auto-cancels the shrink on death now).
+
+## 0.5.2
+
+- **Updated:** Requires ScalerCore 0.5.2 (fixes a KeyNotFoundException in `GetBaseGrabStats` that was breaking voice cancel on unshrink and level transitions, plus a non-host cleanup hole that was leaving voices stuck pitched).
+- **Updated:** Description refreshed to mention v0.4 content (cosmetic boxes, vehicles).
+
 ## 0.5.1
 
 - **New:** Cosmetic boxes shrink now. They sat outside the previous handler predicates (no `ValuableObject`, no `ItemAttributes`) so the gun just bounced off them.
