@@ -1,8 +1,9 @@
 # Changelog
 
-## 0.5.3
+## 0.6.0
 
-- **Updated:** Requires ScalerCore 0.5.3 (shrunken players who died and got revived stayed shrunken on everyone else's screen; host auto-cancels the shrink on death now).
+- **Updated:** Requires ScalerCore 0.6.0. Loom's arms finally track a shrunken body. Held forceGrabPoint items (guns, melee, batteries) sit at eye height when shrunken instead of waist. Big API expansion that lets other shrinker cart and persistent-shrink mods drop their reflection workarounds.
+- **Updated:** Requires REPOLib 4.0.2 (customize menu fix, meta save backup).
 
 ## 0.5.2
 

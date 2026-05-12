@@ -2,7 +2,7 @@
 
 A shrink ray you can buy in the shop. Shoot anything to shrink it. Shoot it again to restore it.
 
-> **v0.5.1: v0.4 content + steering and pocketing fixes.** Shrunken vehicles drive properly now, cosmetic boxes shrink, and carts no longer vanish on repeated shrink/unshrink. Pair with ScalerCore 0.5.1 and REPOLib 4.0.1.
+> **v0.6.0: ScalerCore 0.6.0 under the hood.** Loom's arms finally fit a shrunken body. Held forceGrabPoint items sit at eye height when shrunken instead of waist. Pair with ScalerCore 0.6.0 and REPOLib 4.0.2.
 
 Enemies, valuables, items, players -- if you can hit it, you can shrink it.
 
@@ -83,8 +83,8 @@ Report bugs on the [GitHub issues page](https://github.com/VirtualPixel/ShrinkGu
 ## Dependencies
 
 - [BepInEx 5](https://thunderstore.io/c/repo/p/BepInEx/BepInExPack/) (5.4.2305+)
-- [REPOLib](https://thunderstore.io/c/repo/p/Zehs/REPOLib/) (4.0.0+)
-- [ScalerCore](https://thunderstore.io/c/repo/p/Vippy/ScalerCore/) (0.5.0+)
+- [REPOLib](https://thunderstore.io/c/repo/p/Zehs/REPOLib/) (4.0.2+)
+- [ScalerCore](https://thunderstore.io/c/repo/p/Vippy/ScalerCore/) (0.6.0+)
 
 ## Credits
 
