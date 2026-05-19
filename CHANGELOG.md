@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.6.1
+
+- **Updated:** Requires ScalerCore 0.6.2, which makes shrinking work under RepoXR (VR). A shrunk player's headset viewpoint and hands now scale with them. The gun itself is unchanged.
+
 ## 0.6.0
 
 - **Updated:** Requires ScalerCore 0.6.0. Loom's arms finally track a shrunken body. Held forceGrabPoint items (guns, melee, batteries) sit at eye height when shrunken instead of waist. Big API expansion that lets other shrinker cart and persistent-shrink mods drop their reflection workarounds.

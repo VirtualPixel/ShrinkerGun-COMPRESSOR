@@ -2,7 +2,7 @@
 
 A shrink ray you can buy in the shop. Shoot anything to shrink it. Shoot it again to restore it.
 
-> **v0.6.0: ScalerCore 0.6.0 under the hood.** Loom's arms finally fit a shrunken body. Held forceGrabPoint items sit at eye height when shrunken instead of waist. Pair with ScalerCore 0.6.0 and REPOLib 4.0.2.
+> **v0.6.1: works in VR.** With RepoXR installed, shrinking a player now scales their headset viewpoint and hands too, not just the third-person body. Pair with ScalerCore 0.6.2 and REPOLib 4.0.2.
 
 Enemies, valuables, items, players -- if you can hit it, you can shrink it.
 
