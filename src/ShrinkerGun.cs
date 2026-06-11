@@ -22,6 +22,7 @@ namespace ShrinkerGun
         internal static float _itemDuration = 0f; // permanent until toggled
         static ConfigEntry<bool> _enableDebugKeys = null!;
         static ConfigEntry<bool> _challengeMode = null!;
+        static ConfigEntry<bool> _shrinkDeadHeads = null!;
         static ConfigEntry<LevelCollapseMode> _levelCollapse = null!;
 
         internal static bool LevelCollapseEnabled => _levelCollapse.Value switch
@@ -58,6 +59,12 @@ namespace ShrinkerGun
                         vc.OverridePitchCancel();
                 }
             };
+
+            _shrinkDeadHeads = Config.Bind("Targets", "ShrinkDeadHeads", false,
+                "Let the shrink ray hit dead Semibot heads. Off by default: a shrunk head is easy to "
+                + "lose and reviving from a pea is its own problem.");
+            ScaleManager.AllowDeadHeads = _shrinkDeadHeads.Value;
+            _shrinkDeadHeads.SettingChanged += (_, _) => ScaleManager.AllowDeadHeads = _shrinkDeadHeads.Value;
 
             _levelCollapse = Config.Bind("Chaos", "LevelCollapse", LevelCollapseMode.Auto,
                 "Shooting the map with the shrink gun triggers a 90-second collapse event. " +
