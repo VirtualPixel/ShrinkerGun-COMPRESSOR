@@ -21,6 +21,7 @@ namespace ShrinkerGun
         internal static float _enemyDuration = 120f;
         internal static float _itemDuration = 0f; // permanent until toggled
         static ConfigEntry<bool> _enableDebugKeys = null!;
+        static ConfigEntry<bool> _growGunMode = null!;
         static ConfigEntry<bool> _challengeMode = null!;
         static ConfigEntry<bool> _shrinkDeadHeads = null!;
         static ConfigEntry<LevelCollapseMode> _levelCollapse = null!;
@@ -36,7 +37,11 @@ namespace ShrinkerGun
         {
             Log = Logger;
 
-            ShrinkOptions = ScaleOptions.Default;
+            _growGunMode = Config.Bind("Debug", "GrowGunMode", false,
+                "TEMP testing toggle: the gun grows targets (ScaleOptions.Growth, factor 2) instead of "
+                + "shrinking them, to prove ScalerCore handles growth end to end. Goes away once verified.");
+            ApplyGunMode();
+            _growGunMode.SettingChanged += (_, _) => ApplyGunMode();
 
             _enableDebugKeys = Config.Bind("Debug", "EnableDebugKeys", false,
                 "Enable F9 to shrink/unshrink yourself. Off by default.");
@@ -71,6 +76,12 @@ namespace ShrinkerGun
                 "Auto = April 1st only. On = always. Off = never.");
 
             new Harmony("Vippy.ShrinkerGun").PatchAll();
+        }
+
+        static void ApplyGunMode()
+        {
+            ShrinkOptions = _growGunMode.Value ? ScaleOptions.Growth : ScaleOptions.Default;
+            Log.LogInfo($"Gun mode: {(_growGunMode.Value ? "GROW (testing)" : "shrink")}");
         }
 
         void Update()
