@@ -2,9 +2,9 @@
 
 A shrink ray you can buy in the shop. Shoot anything to shrink it. Shoot it again to restore it.
 
-> **v0.6.1: works in VR.** With RepoXR installed, shrinking a player now scales their headset viewpoint and hands too, not just the third-person body. Pair with ScalerCore 0.6.2 and REPOLib 4.0.2.
+> **v0.7.0: now a grow gun too.** Flip `Gun / Mode` to Grow and the ray makes things big instead of small: enemies, valuables, even you, with the deeper audio and longer reach to match. Grown enemies still fit the level. Shrink is the default. Needs ScalerCore 1.0.0 and REPOLib 4.2.0.
 
-Enemies, valuables, items, players -- if you can hit it, you can shrink it.
+Enemies, valuables, items, players -- if you can hit it, you can shrink it. Or, in Grow mode, supersize it.
 
 <img src="https://raw.githubusercontent.com/VirtualPixel/ShrinkerGun-COMPRESSOR/main/media/shop_chaos.gif" width="800">
 
@@ -55,11 +55,20 @@ It costs a weapon slot and uses ammo. Everything has counterplay:
 
 ## Configuration
 
+Settings (in-game config / `BepInEx/config`, host's settings rule in multiplayer):
+
+| Setting | What it does |
+|---------|--------------|
+| `Gun / Mode` | Shrink (default) or Grow. Grow makes targets big instead of small. |
+| `Targets / ShrinkDeadHeads` | Let the ray hit dead Semibot heads. Off by default. |
+| `Battery / ShotsPerCharge` | Shots a full battery gives. 0 leaves the built-in amount. Needs a restart. |
+| `Battery / Rechargeable` | Whether the gun tops up at a charging station. Needs a restart. |
+
 Hardcoded defaults:
 
 | Behavior | Value |
 |----------|-------|
-| Scale factor | 40% of original size |
+| Scale factor | 40% shrink / 200% grow |
 | Enemy restore | 2 minutes |
 | Valuable restore | Permanent (until damaged) |
 | Item restore | Permanent (until toggled) |
@@ -83,8 +92,8 @@ Report bugs on the [GitHub issues page](https://github.com/VirtualPixel/ShrinkGu
 ## Dependencies
 
 - [BepInEx 5](https://thunderstore.io/c/repo/p/BepInEx/BepInExPack/) (5.4.2305+)
-- [REPOLib](https://thunderstore.io/c/repo/p/Zehs/REPOLib/) (4.0.2+)
-- [ScalerCore](https://thunderstore.io/c/repo/p/Vippy/ScalerCore/) (0.6.0+)
+- [REPOLib](https://thunderstore.io/c/repo/p/Zehs/REPOLib/) (4.2.0+)
+- [ScalerCore](https://thunderstore.io/c/repo/p/Vippy/ScalerCore/) (1.0.0+)
 
 ## Credits
 

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.0
+
+- **New:** Grow mode. The new `Gun / Mode` setting flips the gun from shrinking to growing. Hit something and it gets big instead of small: twice the size, heavier, with the deeper audio and the longer reach to match, and ScalerCore caps a grown enemy's physical size so it still fits the doorways instead of wedging in the level. Shrink stays the default; the host's setting rules in multiplayer.
+- **New:** Dead Semibot heads can be shrunk now, behind `Targets / ShrinkDeadHeads` (off by default: a shrunk head is easy to lose and reviving from a pea is its own problem). The toggle just sets ScalerCore's policy; the head scales like any other prop.
+- **New:** Battery config. `Battery / ShotsPerCharge` sets how many shots a full battery gives, and `Battery / Rechargeable` controls whether the gun tops up at a charging station. Both take a game restart, and the host's setting rules in multiplayer (battery charge and drain are host-simulated). The meter keeps its normal bars.
+- **Updated:** Requires ScalerCore 1.0.0. Growth is a real direction now, not just shrinking, which is what makes Grow mode work: things that grow get matching audio, mass, and reach, and a grown enemy caps its physical size so it still fits the level.
+- **Updated:** Requires REPOLib 4.2.0.
+
 ## 0.6.1
 
 - **Updated:** Requires ScalerCore 0.6.2, which makes shrinking work under RepoXR (VR). A shrunk player's headset viewpoint and hands now scale with them. The gun itself is unchanged.

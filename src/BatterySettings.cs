@@ -12,18 +12,19 @@ namespace ShrinkerGun
     // option has a "leave it alone" default, so the gun behaves exactly as the
     // bundle shipped until someone changes a value.
 
-    // batteryBars (meter granularity) and isUnchargable (rechargeable) live on
-    // ItemBattery. Awake runs before BatteryInit reads batteryBars, so set it
-    // here and the init picks it up.
+    // isUnchargable (rechargeable) lives on ItemBattery. Host-only: battery
+    // state is host-simulated and synced down (ItemBattery's charge logic and
+    // ItemGun's drain are both master-gated), so only the host's config may
+    // shape it. A client's setting must not touch the local fields at all.
+    // batteryBars stays vanilla: the meter's segment rendering is built for
+    // the prefab's bar count and overriding it breaks the readout.
     [HarmonyPatch(typeof(ItemBattery), "Awake")]
     static class BatteryConfigPatch
     {
         static void Postfix(ItemBattery __instance)
         {
+            if (!SemiFunc.IsMasterClientOrSingleplayer()) return;
             if (__instance.GetComponent<ItemGunShrink>() == null) return;
-
-            int bars = Plugin.BatteryBars.Value;
-            if (bars > 0) __instance.batteryBars = bars;
 
             switch (Plugin.BatteryRechargeable.Value)
             {
@@ -36,11 +37,15 @@ namespace ShrinkerGun
     // ItemGun owns the per-shot drain. batteryLife runs 0..100 and a normal shot
     // subtracts batteryDrain, so 100 / drain is the shots a full battery gives.
     // Force fractional-drain mode and solve for the configured shot count.
+    // Host-only: ShootRPC's drain block is master-gated, the host's drain value
+    // is the only one the game ever consumes. Gating the write keeps a client's
+    // config from even pretending to apply.
     [HarmonyPatch(typeof(ItemGun), "Start")]
     static class GunBatteryDrainPatch
     {
         static void Postfix(ItemGun __instance)
         {
+            if (!SemiFunc.IsMasterClientOrSingleplayer()) return;
             if (__instance.GetComponent<ItemGunShrink>() == null) return;
 
             int uses = Plugin.BatteryShotsPerCharge.Value;

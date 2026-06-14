@@ -10,6 +10,7 @@ using UnityEngine;
 namespace ShrinkerGun
 {
     enum LevelCollapseMode { Auto, On, Off }
+    enum GunMode { Shrink, Grow }
 
     [BepInPlugin("Vippy.ShrinkerGun", "ShrinkerGun", BuildInfo.Version)]
     [BepInDependency("Vippy.ScalerCore", BepInDependency.DependencyFlags.HardDependency)]
@@ -21,12 +22,11 @@ namespace ShrinkerGun
         internal static float _enemyDuration = 120f;
         internal static float _itemDuration = 0f; // permanent until toggled
         static ConfigEntry<bool> _enableDebugKeys = null!;
-        static ConfigEntry<bool> _growGunMode = null!;
+        static ConfigEntry<GunMode> _gunMode = null!;
         static ConfigEntry<bool> _challengeMode = null!;
         static ConfigEntry<bool> _shrinkDeadHeads = null!;
         static ConfigEntry<LevelCollapseMode> _levelCollapse = null!;
         internal static ConfigEntry<int> BatteryShotsPerCharge = null!;
-        internal static ConfigEntry<int> BatteryBars = null!;
         internal static ConfigEntry<BatteryCharge> BatteryRechargeable = null!;
 
         internal static bool LevelCollapseEnabled => _levelCollapse.Value switch
@@ -40,11 +40,20 @@ namespace ShrinkerGun
         {
             Log = Logger;
 
-            _growGunMode = Config.Bind("Debug", "GrowGunMode", false,
-                "TEMP testing toggle: the gun grows targets (ScaleOptions.Growth, factor 2) instead of "
-                + "shrinking them, to prove ScalerCore handles growth end to end. Goes away once verified.");
+            BatteryShotsPerCharge = Config.Bind("Battery", "ShotsPerCharge", 0,
+                "Requires a game restart to apply. The host's setting rules in multiplayer.\n" +
+                "How many shots a full battery gives the shrink gun. The meter keeps its normal bars. " +
+                "0 leaves the gun's built-in amount alone.");
+            BatteryRechargeable = Config.Bind("Battery", "Rechargeable", BatteryCharge.Default,
+                "Requires a game restart to apply. The host's setting rules in multiplayer.\n" +
+                "Whether the shrink gun recharges at a charging station. Default leaves the built-in setting.");
+
+            _gunMode = Config.Bind("Gun", "Mode", GunMode.Shrink,
+                "What the gun does to whatever it hits. Shrink (default) makes things small; "
+                + "Grow makes them big (twice size, heavier, with the matching audio and reach). "
+                + "The host's setting rules in multiplayer.");
             ApplyGunMode();
-            _growGunMode.SettingChanged += (_, _) => ApplyGunMode();
+            _gunMode.SettingChanged += (_, _) => ApplyGunMode();
 
             _enableDebugKeys = Config.Bind("Debug", "EnableDebugKeys", false,
                 "Enable F9 to shrink/unshrink yourself. Off by default.");
@@ -78,22 +87,13 @@ namespace ShrinkerGun
                 "Shooting the map with the shrink gun triggers a 90-second collapse event. " +
                 "Auto = April 1st only. On = always. Off = never.");
 
-            BatteryShotsPerCharge = Config.Bind("Battery", "ShotsPerCharge", 0,
-                "How many shots a full battery gives the shrink gun. 0 leaves the gun's built-in amount " +
-                "alone. Higher means more shots before it needs a recharge.");
-            BatteryBars = Config.Bind("Battery", "Bars", 0,
-                "Battery bars shown on the gun's meter. 0 leaves the built-in count. This is meter " +
-                "granularity, not total charge: use ShotsPerCharge for that.");
-            BatteryRechargeable = Config.Bind("Battery", "Rechargeable", BatteryCharge.Default,
-                "Whether the shrink gun recharges at a charging station. Default leaves the built-in setting.");
-
             new Harmony("Vippy.ShrinkerGun").PatchAll();
         }
 
         static void ApplyGunMode()
         {
-            ShrinkOptions = _growGunMode.Value ? ScaleOptions.Growth : ScaleOptions.Default;
-            Log.LogInfo($"Gun mode: {(_growGunMode.Value ? "GROW (testing)" : "shrink")}");
+            ShrinkOptions = _gunMode.Value == GunMode.Grow ? ScaleOptions.Growth : ScaleOptions.Default;
+            Log.LogInfo($"Gun mode: {_gunMode.Value}");
         }
 
         void Update()
