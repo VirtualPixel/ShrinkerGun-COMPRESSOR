@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.7.1
+
+- **Updated:** Requires ScalerCore 1.0.2, which fixes two grow-mode rough edges and a hitch. Switching the gun from grow to shrink and firing again without expanding first now drops the camera down with the body instead of leaving the view floating where the giant's head was, a shrunken Semibot no longer bobs its head at double speed, and the first scale of a session no longer freeze-frames.
+
 ## 0.7.0
 
 - **New:** Grow mode. The new `Gun / Mode` setting flips the gun from shrinking to growing. Hit something and it gets big instead of small: twice the size, heavier, with the deeper audio and the longer reach to match, and ScalerCore caps a grown enemy's physical size so it still fits the doorways instead of wedging in the level. Shrink stays the default; the host's setting rules in multiplayer.
