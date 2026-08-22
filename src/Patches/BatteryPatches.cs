@@ -51,4 +51,20 @@ namespace ShrinkerGun
             __instance.batteryDrain = 100f / uses;
         }
     }
+
+    // The truck charger never reads isUnchargable. ChargingStation.UpdateItemsInRange
+    // grabs every battery in the charge area with bars to fill; only the drone and
+    // orb chargers go through SemiFunc.BatteryChargeCondition. So SingleUse pulls
+    // the gun back out of the charger's list itself. Host-only like the other two:
+    // the host's ItemBattery.Update is the one that consumes the charge.
+    [HarmonyPatch(typeof(ChargingStation), "UpdateItemsInRange")]
+    static class ChargerSingleUsePatch
+    {
+        static void Postfix(ChargingStation __instance)
+        {
+            if (PluginConfig.BatteryRechargeable.Value != BatteryCharge.SingleUse) return;
+            if (!SemiFunc.IsMasterClientOrSingleplayer()) return;
+            __instance.itemsCharging.RemoveAll(b => b.isUnchargable && b.GetComponent<ItemGunShrink>() != null);
+        }
+    }
 }

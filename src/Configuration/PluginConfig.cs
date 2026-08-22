@@ -40,7 +40,7 @@ namespace ShrinkerGun
                 "0 leaves the gun's built-in amount alone.");
             BatteryRechargeable = config.Bind("Battery", "Rechargeable", BatteryCharge.Default,
                 "Requires a game restart to apply. The host's setting rules in multiplayer.\n" +
-                "Whether the shrink gun recharges at a charging station. Default leaves the built-in setting.");
+                "Whether the shrink gun's battery can be recharged (truck charger, drones, orbs). Default leaves the built-in setting.");
 
             _gunMode = config.Bind("Gun", "Mode", GunMode.Shrink,
                 "What the gun does to whatever it hits. Shrink (default) makes things small; "
