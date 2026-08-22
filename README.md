@@ -78,8 +78,8 @@ Hardcoded defaults:
 | Valuable restore | Permanent (until damaged) |
 | Item restore | Permanent (until toggled) |
 | Player restore | Permanent (until damaged) |
-| Enemy damage | Scales with size (40%) |
-| Enemy speed | 75% |
+| Enemy damage | Scales with size |
+| Enemy speed | 75% shrunk, 125% grown |
 
 <img src="https://raw.githubusercontent.com/VirtualPixel/ShrinkerGun-COMPRESSOR/main/media/map_chaos.gif" width="800">
 
