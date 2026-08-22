@@ -4,14 +4,15 @@ using UnityEngine;
 
 namespace ShrinkerGun
 {
-    // Lives on the plugin object so it ticks in every scene. Two key polls a
-    // frame; the avatar lookup only happens on the frame a key goes down.
+    // Lives on the plugin object so it ticks in every scene. One bool and two
+    // key polls a frame; the avatar lookup only happens when a key goes down.
     class DebugKeys : MonoBehaviour
     {
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.F9)) ToggleSelf();
-            if (Input.GetKeyDown(KeyCode.End) && PluginConfig.LevelCollapseOn) Collapse();
+            if (!PluginConfig.EnableDebugKeys.Value) return;
+            if (Input.GetKeyDown(PluginConfig.ShrinkKey.Value)) ToggleSelf();
+            if (Input.GetKeyDown(PluginConfig.CollapseKey.Value) && PluginConfig.LevelCollapseEnabled) Collapse();
         }
 
         static void ToggleSelf()

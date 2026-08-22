@@ -15,6 +15,8 @@ namespace ShrinkerGun
         internal static ConfigEntry<int> BatteryShotsPerCharge = null!;
         internal static ConfigEntry<BatteryCharge> BatteryRechargeable = null!;
         internal static ConfigEntry<bool> EnableDebugKeys = null!;
+        internal static ConfigEntry<KeyCode> ShrinkKey = null!;
+        internal static ConfigEntry<KeyCode> CollapseKey = null!;
         static ConfigEntry<GunMode> _gunMode = null!;
         static ConfigEntry<bool> _challengeMode = null!;
         static ConfigEntry<bool> _shrinkDeadHeads = null!;
@@ -22,8 +24,6 @@ namespace ShrinkerGun
 
         // What every shot applies. Follows Gun / Mode live.
         internal static ScaleOptions ShrinkOptions;
-
-        internal static bool LevelCollapseOn => _levelCollapse.Value == LevelCollapseMode.On;
 
         internal static bool LevelCollapseEnabled => _levelCollapse.Value switch
         {
@@ -50,9 +50,13 @@ namespace ShrinkerGun
             _gunMode.SettingChanged += (_, _) => ApplyGunMode();
 
             EnableDebugKeys = config.Bind("Debug", "EnableDebugKeys", false,
-                "Enable F9 to shrink/unshrink yourself. Off by default.");
+                "Turn on the debug keys below. Off by default.");
             ScaleController.AllowManualScale = EnableDebugKeys.Value;
             EnableDebugKeys.SettingChanged += (_, _) => ScaleController.AllowManualScale = EnableDebugKeys.Value;
+            ShrinkKey = config.Bind("Debug", "ShrinkKey", KeyCode.F9,
+                "Shrink or unshrink yourself.");
+            CollapseKey = config.Bind("Debug", "CollapseKey", KeyCode.End,
+                "Start the level collapse by hand. Host only, and only while LevelCollapse is active.");
 
             _challengeMode = config.Bind("Challenge", "ShrinkChallengeMode", false,
                 "All players start shrunken. Shrink guns temporarily grow you back to full size. " +
