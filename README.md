@@ -57,12 +57,17 @@ It costs a weapon slot and uses ammo. Everything has counterplay:
 
 Settings (in-game config / `BepInEx/config`, host's settings rule in multiplayer):
 
-| Setting | What it does |
-|---------|--------------|
-| `Gun / Mode` | Shrink (default) or Grow. Grow makes targets big instead of small. |
-| `Targets / ShrinkDeadHeads` | Let the ray hit dead Semibot heads. Off by default. |
-| `Battery / ShotsPerCharge` | Shots a full battery gives. 0 leaves the built-in amount. Needs a restart. |
-| `Battery / Rechargeable` | Whether the gun tops up at a charging station. Needs a restart. |
+| Setting | Default | What it does |
+|---------|---------|--------------|
+| `Gun / Mode` | Shrink | Shrink or Grow. Grow makes targets big instead of small. |
+| `Targets / ShrinkDeadHeads` | Off | Let the ray hit dead Semibot heads. |
+| `Battery / ShotsPerCharge` | 0 | Shots a full battery gives, up to 100. 0 leaves the built-in amount. Needs a restart. |
+| `Battery / Rechargeable` | Default | Whether the gun tops up at a charging station. Default leaves the built-in setting. Needs a restart. |
+| `Challenge / ShrinkChallengeMode` | Off | Everyone starts shrunken. The gun grows you back for a while, damage shrinks you again. |
+| `Chaos / LevelCollapse` | Auto | Shooting the map starts a 90-second collapse. Auto = April 1st only, On = always, Off = never. |
+| `Debug / EnableDebugKeys` | Off | Turns the two keys below on. |
+| `Debug / ShrinkKey` | F9 | Shrink or unshrink yourself, no gun needed. |
+| `Debug / CollapseKey` | End | Start the collapse by hand. Host only, and only while `LevelCollapse` is active. |
 
 Hardcoded defaults:
 
@@ -87,8 +92,6 @@ All players need ShrinkerGun and ScalerCore installed. Everything syncs over Pho
 - Loom (Shadow) arms may look off while shrunken (cosmetic, attack distance still scales)
 - Some untested enemy types may float or clip slightly while shrunken
 
-Report bugs on the [GitHub issues page](https://github.com/VirtualPixel/ShrinkGun-COMPRESSOR/issues).
-
 ## Dependencies
 
 - [BepInEx 5](https://thunderstore.io/c/repo/p/BepInEx/BepInExPack/) (5.4.2305+)
@@ -98,3 +101,14 @@ Report bugs on the [GitHub issues page](https://github.com/VirtualPixel/ShrinkGu
 ## Credits
 
 Made by Vippy. [ScalerCore](https://thunderstore.io/c/repo/p/Vippy/ScalerCore/) is the scaling engine under the hood, open source if you want to build your own shrink/grow mod.
+
+## Contact
+
+| Purpose | Where |
+|---|---|
+| Bug reports and suggestions | [GitHub Issues](https://github.com/VirtualPixel/ShrinkerGun-COMPRESSOR/issues) |
+| Questions, test builds, or just hanging out | [Vippy's Discord](https://discord.gg/kKqhck2NrP) |
+| R.E.P.O. modding in general | [R.E.P.O. Modding Server](https://discord.gg/9fDzZ9sk95) |
+
+Everything I make stays free. If one of these mods made your runs better and you feel like
+saying thanks, there is a [Ko-fi](https://ko-fi.com/vippydev).
