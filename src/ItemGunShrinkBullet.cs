@@ -1,4 +1,5 @@
 using ScalerCore;
+using ScalerCore.AprilFools;
 using UnityEngine;
 
 namespace ShrinkerGun
@@ -11,6 +12,9 @@ namespace ShrinkerGun
     // on the sibling ItemGunBullet, so the hit point is ready immediately.
     public class ItemGunShrinkBullet : MonoBehaviour
     {
+        const float EnemyDuration = 120f;
+        const float ItemDuration = 0f; // permanent until toggled
+
         // Set by GunSourcePatch Prefix immediately before ItemGun.ShootBulletRPC
         // instantiates the bullet. Awake() reads and clears it synchronously
         // (Awake fires inside Instantiate) so rapid fire never bleeds across bullets.
@@ -23,6 +27,9 @@ namespace ShrinkerGun
             PendingSourceCtrl = null;
         }
 
+        // Host only. ShootBulletRPC goes to every client, so the host sees every
+        // shot and decides both outcomes here: scale whatever the ray landed on,
+        // or, if it landed on bare map, start the collapse. Clients never decide.
         void Start()
         {
             if (!SemiFunc.IsMasterClientOrSingleplayer()) return;
@@ -30,10 +37,13 @@ namespace ShrinkerGun
             var bullet = GetComponent<ItemGunBullet>();
             if (bullet == null || !bullet.bulletHit) return;
 
-            ShrinkAtPoint(bullet.hitPosition);
+            if (ShrinkAtPoint(bullet.hitPosition)) return;
+            if (Plugin.LevelCollapseEnabled) MapCollapse.OnMapHit();
         }
 
-        void ShrinkAtPoint(Vector3 point)
+        // Returns true when anything ScalerCore knows about sat at the hit point,
+        // including the gun that fired (which is skipped, not scaled).
+        bool ShrinkAtPoint(Vector3 point)
         {
             // Include "Player" so the gun's own raycast hit (which already landed on the
             // player capsule) is found here. PlayerShrinkLink bridges CollisionTransform
@@ -45,6 +55,7 @@ namespace ShrinkerGun
                 point, 0.3f, layerMask, QueryTriggerInteraction.Collide);
 
             int playerLayer = LayerMask.NameToLayer("Player");
+            bool foundAny = false;
             foreach (var col in colliders)
             {
                 var ctrl = col.GetComponent<PlayerShrinkLink>()?.Controller
@@ -56,10 +67,13 @@ namespace ShrinkerGun
                 if (ctrl == null && col.gameObject.layer == playerLayer)
                     ctrl = FindNearestPlayerCtrl(col.transform.position);
 
-                if (ctrl == null || ctrl == _sourceCtrl) continue;
+                if (ctrl == null) continue;
+                foundAny = true;
+                if (ctrl == _sourceCtrl) continue;
                 Toggle(ctrl);
-                return;
+                return true;
             }
+            return foundAny;
         }
 
         static ScaleController? FindNearestPlayerCtrl(Vector3 pos)
@@ -85,9 +99,9 @@ namespace ShrinkerGun
             // ScalerCore handles same-factor toggle automatically, just always Apply.
             var opts = Plugin.ShrinkOptions;
             if (ctrl.TargetType == ScaleTargets.Enemies)
-                opts.Duration = Plugin._enemyDuration;
+                opts.Duration = EnemyDuration;
             else if (ctrl.TargetType == ScaleTargets.Items)
-                opts.Duration = Plugin._itemDuration;
+                opts.Duration = ItemDuration;
             ScaleManager.Apply(ctrl.gameObject, opts);
         }
     }

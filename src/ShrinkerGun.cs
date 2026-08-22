@@ -19,8 +19,6 @@ namespace ShrinkerGun
     {
         internal static ManualLogSource Log = null!;
         internal static ScaleOptions ShrinkOptions;
-        internal static float _enemyDuration = 120f;
-        internal static float _itemDuration = 0f; // permanent until toggled
         static ConfigEntry<bool> _enableDebugKeys = null!;
         static ConfigEntry<GunMode> _gunMode = null!;
         static ConfigEntry<bool> _challengeMode = null!;
@@ -129,25 +127,6 @@ namespace ShrinkerGun
             static void Prefix(ItemGun __instance)
             {
                 ItemGunShrinkBullet.PendingSourceCtrl = __instance.GetComponent<ScaleController>();
-            }
-        }
-
-        // Trigger level collapse when a shrink bullet hits the map (not a player/enemy/valuable).
-        [HarmonyPatch(typeof(ItemGunBullet), nameof(ItemGunBullet.ActivateAll))]
-        class LevelCollapseHitPatch
-        {
-            static void Postfix(ItemGunBullet __instance)
-            {
-                if (!LevelCollapseEnabled) return;
-                if (!__instance.bulletHit) return;
-                if (__instance.GetComponent<ItemGunShrinkBullet>() == null) return;
-
-                int mask = (int)SemiFunc.LayerMaskGetPhysGrabObject() | LayerMask.GetMask("Enemy", "Player");
-                foreach (var c in Physics.OverlapSphere(__instance.hitPosition, 0.3f, mask, QueryTriggerInteraction.Collide))
-                    if (c.GetComponent<PlayerShrinkLink>()?.Controller != null || c.GetComponentInParent<ScaleController>() != null)
-                        return;
-
-                MapCollapse.OnMapHit();
             }
         }
     }
