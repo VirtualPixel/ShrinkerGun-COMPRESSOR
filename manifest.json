@@ -1,6 +1,6 @@
 {
   "name": "ShrinkerGun",
-  "version_number": "0.7.1",
+  "version_number": "0.7.2",
   "website_url": "https://github.com/VirtualPixel/ShrinkerGun-COMPRESSOR",
   "description": "Shrink (or grow) ray gun for R.E.P.O. Hit enemies, valuables, items, players, cosmetic boxes, and vehicles. Flip it to Grow mode for giants. Pocketable when small, drivable too. Tiny squeaky enemies become grabbable. Pairs with any shrinker cart.",
   "dependencies": [

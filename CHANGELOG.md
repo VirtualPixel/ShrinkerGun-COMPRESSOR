@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.2
+
+- **Fixed:** A client with `Chaos / LevelCollapse` turned on could collapse the map for a lobby whose host had it off. The map-hit check ran on every machine the bullet landed on and asked the local setting; the collapse is the host's call now, same as everything else a shot does.
+- **Fixed:** `Battery / Rechargeable = SingleUse` still let the gun top up in the truck. The flag it sets is only read by the drone and orb chargers, so the charging station was quietly refilling a battery that was meant to be one and done.
+- **Fixed:** `Battery / ShotsPerCharge` came up short. The meter counts the bottom half bar as empty, so a gun set to 100 shots fired 92 and one set to 50 fired 46. You get the number you asked for now.
+- **Fixed:** The `End` key started a collapse for anyone who had `LevelCollapse` on, whether or not they had turned debug keys on. Both keys sit behind `Debug / EnableDebugKeys` now, and both are rebindable (`Debug / ShrinkKey`, `Debug / CollapseKey`).
+- **Updated:** Requires ScalerCore 1.0.4, which fixes the missing-method error that broke player scaling on the current game build.
+
 ## 0.7.1
 
 - **Updated:** Requires ScalerCore 1.0.2, which fixes two grow-mode rough edges and a hitch. Switching the gun from grow to shrink and firing again without expanding first now drops the camera down with the body instead of leaving the view floating where the giant's head was, a shrunken Semibot no longer bobs its head at double speed, and the first scale of a session no longer freeze-frames.
