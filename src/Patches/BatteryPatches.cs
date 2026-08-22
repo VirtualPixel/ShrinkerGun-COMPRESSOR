@@ -32,8 +32,8 @@ namespace ShrinkerGun
     }
 
     // ItemGun owns the per-shot drain. batteryLife runs 0..100 and a normal shot
-    // subtracts batteryDrain, so 100 / drain is the shots a full battery gives.
-    // Force fractional-drain mode and solve for the configured shot count.
+    // subtracts batteryDrain, so force fractional-drain mode and size the drain
+    // to the configured shot count (see BatteryMath for why it isn't 100 / uses).
     // Host-only: ShootRPC's drain block is master-gated, the host's drain value
     // is the only one the game ever consumes. Gating the write keeps a client's
     // config from even pretending to apply.
@@ -44,11 +44,12 @@ namespace ShrinkerGun
         {
             if (!SemiFunc.IsMasterClientOrSingleplayer()) return;
             if (__instance.GetComponent<ItemGunShrink>() == null) return;
+            if (__instance.itemBattery == null) return;
 
             int uses = PluginConfig.BatteryShotsPerCharge.Value;
             if (uses <= 0) return;
             __instance.batteryDrainFullBar = false;
-            __instance.batteryDrain = 100f / uses;
+            __instance.batteryDrain = BatteryMath.ShotDrain(uses, __instance.itemBattery.batteryBars);
         }
     }
 
