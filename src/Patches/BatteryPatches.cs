@@ -2,9 +2,6 @@ using HarmonyLib;
 
 namespace ShrinkerGun
 {
-    // Default leaves the prefab's own setting untouched.
-    public enum BatteryCharge { Default, Rechargeable, SingleUse }
-
     // The shrink gun's battery values live on the ItemBattery component baked
     // into the prefab, so they ship as defaults but aren't locked. These two
     // patches overwrite them from config at spawn, gated to our gun by the
@@ -26,7 +23,7 @@ namespace ShrinkerGun
             if (!SemiFunc.IsMasterClientOrSingleplayer()) return;
             if (__instance.GetComponent<ItemGunShrink>() == null) return;
 
-            switch (Plugin.BatteryRechargeable.Value)
+            switch (PluginConfig.BatteryRechargeable.Value)
             {
                 case BatteryCharge.Rechargeable: __instance.isUnchargable = false; break;
                 case BatteryCharge.SingleUse:    __instance.isUnchargable = true;  break;
@@ -48,7 +45,7 @@ namespace ShrinkerGun
             if (!SemiFunc.IsMasterClientOrSingleplayer()) return;
             if (__instance.GetComponent<ItemGunShrink>() == null) return;
 
-            int uses = Plugin.BatteryShotsPerCharge.Value;
+            int uses = PluginConfig.BatteryShotsPerCharge.Value;
             if (uses <= 0) return;
             __instance.batteryDrainFullBar = false;
             __instance.batteryDrain = 100f / uses;

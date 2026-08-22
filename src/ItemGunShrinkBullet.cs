@@ -38,7 +38,7 @@ namespace ShrinkerGun
             if (bullet == null || !bullet.bulletHit) return;
 
             if (ShrinkAtPoint(bullet.hitPosition)) return;
-            if (Plugin.LevelCollapseEnabled) MapCollapse.OnMapHit();
+            if (PluginConfig.LevelCollapseEnabled) MapCollapse.OnMapHit();
         }
 
         // Returns true when anything ScalerCore knows about sat at the hit point,
@@ -97,7 +97,7 @@ namespace ShrinkerGun
         static void Toggle(ScaleController ctrl)
         {
             // ScalerCore handles same-factor toggle automatically, just always Apply.
-            var opts = Plugin.ShrinkOptions;
+            var opts = PluginConfig.ShrinkOptions;
             if (ctrl.TargetType == ScaleTargets.Enemies)
                 opts.Duration = EnemyDuration;
             else if (ctrl.TargetType == ScaleTargets.Items)
