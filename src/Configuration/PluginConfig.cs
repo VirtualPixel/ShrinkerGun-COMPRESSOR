@@ -34,10 +34,11 @@ namespace ShrinkerGun
 
         internal static void Init(ConfigFile config)
         {
-            BatteryShotsPerCharge = config.Bind("Battery", "ShotsPerCharge", 0,
+            BatteryShotsPerCharge = config.Bind("Battery", "ShotsPerCharge", 0, new ConfigDescription(
                 "Requires a game restart to apply. The host's setting rules in multiplayer.\n" +
                 "How many shots a full battery gives the shrink gun. The meter keeps its normal bars. " +
-                "0 leaves the gun's built-in amount alone.");
+                "0 leaves the gun's built-in amount alone.",
+                new AcceptableValueRange<int>(0, 100)));
             BatteryRechargeable = config.Bind("Battery", "Rechargeable", BatteryCharge.Default,
                 "Requires a game restart to apply. The host's setting rules in multiplayer.\n" +
                 "Whether the shrink gun's battery can be recharged (truck charger, drones, orbs). Default leaves the built-in setting.");
