@@ -2,7 +2,6 @@ obj/
 bin/
 *.user
 .vs/
-.claude/
 src/.vs/
 src/plugins/
 
