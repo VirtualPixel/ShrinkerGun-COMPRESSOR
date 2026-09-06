@@ -6,7 +6,7 @@
 - **Fixed:** `Battery / Rechargeable = SingleUse` still let the gun top up in the truck. The flag it sets is only read by the drone and orb chargers, so the charging station was quietly refilling a battery that was meant to be one and done.
 - **Fixed:** `Battery / ShotsPerCharge` came up short. The meter counts the bottom half bar as empty, so a gun set to 100 shots fired 92 and one set to 50 fired 46. You get the number you asked for now.
 - **Fixed:** The `End` key started a collapse for anyone who had `LevelCollapse` on, whether or not they had turned debug keys on. Both keys sit behind `Debug / EnableDebugKeys` now, and both are rebindable (`Debug / ShrinkKey`, `Debug / CollapseKey`).
-- **Updated:** Requires ScalerCore 1.0.5, which fixes the missing-method error that broke player scaling on the current game build, the enemy float and the voice cutout.
+- **Updated:** Requires ScalerCore 1.0.6, which fixes the missing-method error that broke player scaling on the current game build, the enemy float, the voice cutout, and the level collapse strobing its lights and siren at frame rate.
 - **Updated:** New icon.
 
 ## 0.7.1
