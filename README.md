@@ -6,7 +6,7 @@ A shrink ray you can buy in the shop. Shoot anything to shrink it. Shoot it agai
 >
 > After way too long of a break, I'm finally back and working on these again :D Every one of my mods just got a full pass: bugs fixed, reports read, a few things I'd always meant to do. New builds and fixes land in [Vippy's Discord](https://discord.gg/kKqhck2NrP) before they hit Thunderstore, so come hang out. Thanks for sticking around.
 
-> **v0.7.0: now a grow gun too.** Flip `Gun / Mode` to Grow and the ray makes things big instead of small: enemies, valuables, even you, with the deeper audio and longer reach to match. Grown enemies still fit the level. Shrink is the default. Needs ScalerCore 1.0.4 and REPOLib 4.2.0.
+> **v0.7.0: now a grow gun too.** Flip `Gun / Mode` to Grow and the ray makes things big instead of small: enemies, valuables, even you, with the deeper audio and longer reach to match. Grown enemies still fit the level. Shrink is the default. Needs ScalerCore 1.0.5 and REPOLib 4.2.0.
 
 Enemies, valuables, items, players -- if you can hit it, you can shrink it. Or, in Grow mode, supersize it.
 
@@ -100,7 +100,7 @@ All players need ShrinkerGun and ScalerCore installed. Everything syncs over Pho
 
 - [BepInEx 5](https://thunderstore.io/c/repo/p/BepInEx/BepInExPack/) (5.4.2305+)
 - [REPOLib](https://thunderstore.io/c/repo/p/Zehs/REPOLib/) (4.2.0+)
-- [ScalerCore](https://thunderstore.io/c/repo/p/Vippy/ScalerCore/) (1.0.4+)
+- [ScalerCore](https://thunderstore.io/c/repo/p/Vippy/ScalerCore/) (1.0.5+)
 
 ## Credits
 
