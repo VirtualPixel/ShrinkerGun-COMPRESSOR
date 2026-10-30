@@ -1,8 +1,12 @@
 # Changelog
 
+## 0.7.5
+
+- **Updated:** needs REPOLib 4.3.0, which fixes the skipped setup properly, so the workaround from 0.7.3 is gone.
+
 ## 0.7.4
 
-- **Updated:** new icon with a border, nothing else touched.
+- **Updated:** new icon with a border.
 
 ## 0.7.3
 

@@ -99,7 +99,7 @@ All players need ShrinkerGun and ScalerCore installed. Everything syncs over Pho
 ## Dependencies
 
 - [BepInEx 5](https://thunderstore.io/c/repo/p/BepInEx/BepInExPack/) (5.4.2305+)
-- [REPOLib](https://thunderstore.io/c/repo/p/Zehs/REPOLib/) (4.2.0+)
+- [REPOLib](https://thunderstore.io/c/repo/p/Zehs/REPOLib/) (4.3.0+)
 - [ScalerCore](https://thunderstore.io/c/repo/p/Vippy/ScalerCore/) (1.0.6+)
 
 ## Credits
