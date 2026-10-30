@@ -15,6 +15,7 @@ namespace ShrinkerGun
         {
             Log = Logger;
             PluginConfig.Init(Config);
+            REPOLibCompat.Apply(Logger);
             gameObject.AddComponent<DebugKeys>();
             new Harmony("Vippy.ShrinkerGun").PatchAll();
         }

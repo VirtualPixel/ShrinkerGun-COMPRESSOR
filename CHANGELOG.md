@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.7.3
+
+- **Updated:** works on the 0.5 game build.
+- **Fixed:** REPOLib 4.2.0 skips part of its own setup on 0.5, so ShrinkerGun does that part itself until REPOLib is updated.
+
 ## 0.7.2
 
 - **Fixed:** A client with `Chaos / LevelCollapse` turned on could collapse the map for a lobby whose host had it off. The map-hit check ran on every machine the bullet landed on and asked the local setting; the collapse is the host's call now, same as everything else a shot does.
