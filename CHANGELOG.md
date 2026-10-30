@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.7.4
+
+- **Updated:** new icon with a border, nothing else touched.
+
 ## 0.7.3
 
 - **Updated:** works on the 0.5 game build.
